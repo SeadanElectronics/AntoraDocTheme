@@ -1,0 +1,23 @@
+# This workflow makes sure that the UI builds without errors
+
+name: Validate the build process
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+ build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Bundle UI
+      run: |
+        npm i
+        gulp bundle
