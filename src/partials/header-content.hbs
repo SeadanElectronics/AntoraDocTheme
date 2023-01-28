@@ -20,22 +20,22 @@
         <a class="navbar-item" href="#">Home</a>
         <a class="navbar-item" href="//github.com/SeadanElectronics">Seadan Github</a>
         <a class="navbar-item" href="//seadan.com.au">Seadan.com.au</a>
-      <ul class="components">
-    {{#each site.components}}
-    <li class="component{{#if (eq this @root.page.component)}} is-current{{/if}}">
-      <a class="title" href="{{{relativize ./url}}}">{{{./title}}}</a>
-      <ul class="versions">
-        {{#each ./versions}}
-        <li class="version
-          {{~#if (and (eq .. @root.page.component) (eq this @root.page.componentVersion))}} is-current{{/if~}}
-          {{~#if (eq this ../latest)}} is-latest{{/if}}">
-          <a href="{{{relativize ./url}}}">{{./displayVersion}}</a>
-        </li>
-        {{/each}}
-      </ul>
-    </li>
-    {{/each}}
-  </ul>
+      {{#each site.components}}
+          {{!-- <li class="component{{#if (eq this @root.page.component)}} is-current{{/if}}">
+            <a class="title" href="{{{relativize ./url}}}"> --}}
+            {{{./title}}}
+            {{!-- </a>
+            <ul class="versions"> --}}
+              {{#each ./versions}}
+              {{!-- <li class="version
+                {{~#if (and (eq .. @root.page.component) (eq this @root.page.componentVersion))}} is-current{{/if~}}
+                {{~#if (eq this ../latest)}} is-latest{{/if}}"> --}}
+                <a href="{{{relativize ./url}}}">{{./displayVersion}}</a>
+              {{!-- </li> --}}
+              {{/each}}
+            {{!-- </ul>
+          </li> --}}
+          {{/each}}
       </div>
     </div>
   </nav>
