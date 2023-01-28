@@ -18,24 +18,16 @@
     <div id="topbar-nav" class="navbar-menu">
       <div class="navbar-end">
         <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Projects</a>
+          <div class="navbar-dropdown">
+            {{#each site.components}}
+            <a class="navbar-item {{#if (eq this @root.page.component)}} is-active{{/if}}"  href="{{{relativize ./url}}}"> {{{./title}}}</a>
+             {{/each}}
+          </div>
+        </div>
         <a class="navbar-item" href="//github.com/SeadanElectronics">Seadan Github</a>
         <a class="navbar-item" href="//seadan.com.au">Seadan.com.au</a>
-      {{#each site.components}}
-          {{!-- <li class="component{{#if (eq this @root.page.component)}} is-current{{/if}}">
-            <a class="title" href="{{{relativize ./url}}}"> --}}
-            {{{./title}}}
-            {{!-- </a>
-            <ul class="versions"> --}}
-              {{#each ./versions}}
-              {{!-- <li class="version
-                {{~#if (and (eq .. @root.page.component) (eq this @root.page.componentVersion))}} is-current{{/if~}}
-                {{~#if (eq this ../latest)}} is-latest{{/if}}"> --}}
-                <a href="{{{relativize ./url}}}">{{./displayVersion}}</a>
-              {{!-- </li> --}}
-              {{/each}}
-            {{!-- </ul>
-          </li> --}}
-          {{/each}}
       </div>
     </div>
   </nav>
